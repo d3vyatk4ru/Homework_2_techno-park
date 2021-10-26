@@ -8,6 +8,7 @@ jobs:
     name: Build project
     runs-on: ubuntu-latest
     steps:
+      - run: ls
       - run: sudo cmake ../src
       - run: sudo make
       - run: ls
