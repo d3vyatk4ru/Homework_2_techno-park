@@ -32,7 +32,7 @@ jobs:
     - uses: actions/checkout@v2
     - run: sudo apt-get -qq update
     - run: sudo apt-get install cppcheck
-    - run: sudo cppcheck -I include --language=c src
+    - run: sudo cppcheck --enable=all --inconclusive --language=c ./src
     
     
   
