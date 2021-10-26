@@ -53,7 +53,7 @@ void *count_once_symbol(void *args) {
 
     arg->count = count;
 
-    return 0;
+    return NULL;
 }
 
 // размер файла
