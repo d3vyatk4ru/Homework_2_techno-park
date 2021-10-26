@@ -30,7 +30,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    -  run: sudo cppcheck src/main.c src/count_symbols_sequence.c src/count_symbols_thread.c src/file_interaction.c src/time_test.c include/file_interaction.h include/stucture_t.h
+    - run: sudo apt-get -qq update
+    - run: sun apt-get install cppcheck
+    - run: sudo cppcheck src/main.c src/count_symbols_sequence.c src/count_symbols_thread.c src/file_interaction.c src/time_test.c include/file_interaction.h include/stucture_t.h
     
     
   
