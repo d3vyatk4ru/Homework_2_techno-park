@@ -16,7 +16,6 @@ double testing(const char *path, const char *symbols, int n_launch) {
 
     struct timespec start, finish;
     double elapsed;
-    pid_t pid = 0;
 
     int errflag = clock_gettime(CLOCK_MONOTONIC, &start);
 
@@ -28,7 +27,7 @@ double testing(const char *path, const char *symbols, int n_launch) {
     for (size_t i = 0; i < n_launch; ++i) {
 
         // сооздаем процесс
-        pid = fork();
+        pid_t pid = fork();
 
         // если процесс дочерний - заходим
         if (pid == 0) {
