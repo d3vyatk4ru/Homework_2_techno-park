@@ -49,4 +49,6 @@ int count_symbols(char const *symbols, char *region, long file_len) {
 
     // печать результата
     print_count((args_routine_t *) &arg, n_threads);
+
+    return 0;
 }
