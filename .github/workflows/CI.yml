@@ -10,7 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ls
-      - run: sudo cmake /src
+      - run: cd src && mkdir build && cd build
+      - run: sudo cmake ..
       - run: sudo make
       - run: ls
 
