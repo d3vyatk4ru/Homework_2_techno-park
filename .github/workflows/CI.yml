@@ -14,7 +14,7 @@ jobs:
 
 # соотсветствие формату написания кода
   formatting-check:
-    name: Formatting Check
+    name: Format checking
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -23,11 +23,14 @@ jobs:
       with:
         clang-format-version: '13'
         check-path: 'src''include'
-#  cpp-check:
-#    name: cppcheck
-#    runs-on: ubuntu-latest
-#    steps:
-#    - uses: actions/checkout@v2
+        
+# Статический анализатор кода
+  cpp-check:
+    name: Static code analysis
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    -  run: sudo cppcheck src/main.c src/count_symbols_sequence.c src/count_symbols_thread.c src/file_interaction.c src/time_test.c include/file_interaction.h include/stucture_t.h
     
     
   
