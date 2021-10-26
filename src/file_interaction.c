@@ -70,6 +70,13 @@ long get_file_size(char const *path) {
     // премещаем внутренний указатель в конец файла.
     if (fseek(fp, 0, SEEK_END)) {
         printf("POSITION SETTING ERROR!!!\n");
+
+        // разрываем связь с файлом
+        if (fclose(fp) == EOF) {
+            printf("FILE WAS CLOSE WITH ERROR!!!\n");
+            return -1;
+        }
+
         return -1;
     }
 
@@ -78,6 +85,13 @@ long get_file_size(char const *path) {
 
     if (len == -1L) {
         printf("ERROR PROCESSING FILE!!!\n");
+
+        // разрываем связь с файлом
+        if (fclose(fp) == EOF) {
+            printf("FILE WAS CLOSE WITH ERROR!!!\n");
+            return -1;
+        }
+
         return -1;
     }
 
