@@ -4,9 +4,9 @@
 
 #include "file_interaction.h"
 #include "stucture_t.h"
-#include <stdio.h>   // поток ввода/вывода
 #include <pthread.h>
-#include <stdlib.h>  // EXIT_SUCCESS
+#include <stdio.h> // поток ввода/вывода
+#include <stdlib.h>// EXIT_SUCCESS
 
 #define ERR -1
 
