@@ -16,7 +16,7 @@ TEST(EQ_LEN, len_100) {
     EXPECT_EQ(len, 1000);
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
 
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
