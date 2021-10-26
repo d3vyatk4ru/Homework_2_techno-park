@@ -18,6 +18,8 @@ int count_symbols(char const *symbols, char *region, long file_len) {
     // массив идентификаторов потока
     pthread_t thread[n_threads];
 
+    // флаг ошибки
+    int errflag;
     args_routine_t arg[n_threads];
 
     for (size_t i = 0; i < n_threads; ++i) {
@@ -27,7 +29,7 @@ int count_symbols(char const *symbols, char *region, long file_len) {
     }
 
     for (size_t i = 0; i < n_threads; ++i) {
-        int errflag = pthread_create(&thread[i], NULL, count_once_symbol, (void *) &arg[i]);
+        errflag = pthread_create(&thread[i], NULL, count_once_symbol, (void *) &arg[i]);
 
         // если не удлось создать и выполнить поток - выход
         if (errflag != EXIT_SUCCESS) {
