@@ -53,18 +53,18 @@ double testing(const char *path, const char *symbols, int n_launch) {
 
 int main() {
 
-    double result_1 = testing("main_static", SYMBOLS, N_LAUNCH);
-    if (result_1 == -1) {
+    double time_1 = testing("main_static", SYMBOLS, N_LAUNCH);
+    if (time_1 == -1) {
         return 1;
     }
 
-    double result_2 = testing("main_shared", SYMBOLS, N_LAUNCH);
-    if (result_2 == -1) {
+    double time_2 = testing("main_shared", SYMBOLS, N_LAUNCH);
+    if (time_2 == -1) {
         return 1;
     }
 
-    printf("Result for %s: %f sec\n", "main_static", result_1);
-    printf("Result for %s: %f sec\n", "main_shared", result_2);
+    printf("Result for %s: %f sec\n", "main_static", time_1);
+    printf("Result for %s: %f sec\n", "main_shared", time_2);
 
     return 0;
 }

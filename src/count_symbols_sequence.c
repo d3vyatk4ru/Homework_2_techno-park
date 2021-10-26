@@ -12,8 +12,6 @@ int count_symbols(char const *symbols, char *region, long file_len) {
     int n_symbols = size(symbols);
     args_routine_t arg[n_symbols];
 
-    int errflag = 0;
-
     for (size_t i = 0; i < n_symbols; ++i) {
         arg[i].symbol = symbols[i];
         arg[i].region = region;
@@ -21,14 +19,14 @@ int count_symbols(char const *symbols, char *region, long file_len) {
     }
 
     for (size_t i = 0; symbols[i] != '\0'; ++i) {
-        errflag = count_once_symbol((void *) &arg[i]);
+        int errflag = count_once_symbol((void *) &arg[i]);
 
         if (errflag != 0) {
-            return -1;
+            return 1;
         }
     }
 
-    //print_count((args_routine_t *) &arg, n_symbols);
+    print_count((args_routine_t *) &arg, n_symbols);
 
     return 0;
 }
