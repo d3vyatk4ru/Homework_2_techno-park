@@ -3,12 +3,12 @@
 //
 
 #include "stucture_t.h"
-#include <fcntl.h>   // импортируем int open(char* path, char mode)
+#include <fcntl.h>// импортируем int open(char* path, char mode)
+#include <pthread.h>
 #include <stdio.h>   // поток ввода/вывода
+#include <stdlib.h>  // EXIT_SUCCESS
 #include <sys/mman.h>// импортируем void* mmap(...)
 #include <unistd.h>  // импортируем int close(inf fd)
-#include <pthread.h>
-#include <stdlib.h>  // EXIT_SUCCESS
 
 #define ERR -1
 
