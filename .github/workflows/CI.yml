@@ -2,6 +2,17 @@ name: CI
 on: [push]
 
 jobs:
+
+# сборка проекта
+  build-project:
+    name: Build project
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo cmake src
+      - run: sudo make
+      - run: ls
+
+# соотсветствие формату написания кода
   formatting-check:
     name: Formatting Check
     runs-on: ubuntu-latest
@@ -12,3 +23,11 @@ jobs:
       with:
         clang-format-version: '13'
         check-path: 'src''include'
+#  cpp-check:
+#    name: cppcheck
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v2
+    
+    
+  
