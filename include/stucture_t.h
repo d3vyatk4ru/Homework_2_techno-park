@@ -13,4 +13,4 @@ typedef struct args_routine {
 } args_routine_t;
 
 
-#endif //HOMEWORK_2_TECHNO_PARK_STUCTURE_T_H
+#endif//HOMEWORK_2_TECHNO_PARK_STUCTURE_T_H

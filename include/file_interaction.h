@@ -19,4 +19,4 @@ int size(char const *symbols);
 
 void *count_once_symbol(void *args);
 
-#endif //HOMEWORK_2_TECHNO_PARK_FILE_INTERACTION_H
+#endif//HOMEWORK_2_TECHNO_PARK_FILE_INTERACTION_H
