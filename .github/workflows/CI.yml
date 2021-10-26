@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 
-      - run: cd src && sudo mkdir build && cd build && sudo cmake .. && sudo make
-      - run: ls
+      - run: sudo mkdir build && cd build && sudo cmake .. && sudo make
 
 # соотсветствие формату написания кода
   formatting-check:
