@@ -8,12 +8,8 @@ jobs:
     name: Build project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: ls
-      - run: cd src && mkdir build && cd build
-      - run: ls
-      - run: sudo cmake ..
-      - run: sudo make
+      - uses: actions/checkout@v2 
+      - run: cd src && sudo mkdir build && cd build && sudo cmake .. && sudo make
       - run: ls
 
 # соотсветствие формату написания кода
