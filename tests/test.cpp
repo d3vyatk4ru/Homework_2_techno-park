@@ -9,7 +9,7 @@ extern "C" {
 
 #include <stdio.h>// поток ввода/вывода
 
-#define TEST_FILE "../../../test_file.txt"
+#define TEST_FILE "../../test_file.txt"
 #define NON_EXIST_FILE "filename.txt"
 #define TRUE_LEN 1000
 #define SYMBOLS "abcdefghij"
