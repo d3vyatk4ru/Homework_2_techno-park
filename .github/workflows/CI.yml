@@ -68,7 +68,7 @@ jobs:
       - run: ls
       - run: cd tests && ls 
       - run: cd build && cd tests && ls
-      - run: sudo /home/runner/work/Homework_2_techno-park/build/tests/test_static && sudo gcovr -r . --html --html-details -o covr_static.html
+      - run: sudo /home/runner/work/Homework_2_techno-park/Homework_2_techno-park/build/tests/test_static && sudo gcovr -r . --html --html-details -o covr_static.html
       - run: sudo ./build/tests/test_shared && sudo gcovr -r . --html --html-details -o covr_shared.html
       - uses: actions/upload-artifact@v2
         with:
