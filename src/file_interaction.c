@@ -25,7 +25,6 @@ int print_count(args_routine_t *arg, int size) {
 
     for (int i = 0; i < size; ++i) {
         fprintf(fd, "%u\n", arg[i].count);
-
     }
 
     if (fclose(fd) == ERR) {
