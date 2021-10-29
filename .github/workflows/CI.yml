@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 
-      - run: sudo apt-get install -y libgtest-dev valgrind
+      - run: sudo apt-get install -y libgtest-dev gcovr
       - run: sudo wget https://github.com/google/googletest/archive/release-1.7.0.tar.gz
       - run: sudo tar -xf release-1.7.0.tar.gz && rm -rf release-1.7.0.tar.gz
       - run: cd googletest-release-1.7.0
@@ -68,7 +68,7 @@ jobs:
       - run: ls
       - run: cd tests && ls 
       - run: cd build && cd tests && ls
-      - run: sudo /home/runner/work/Homework_2_techno-park/Homework_2_techno-park/build/tests/test_static && sudo gcovr -r . --html --html-details -o covr_static.html
+      - run: sudo ./build/tests/test_static && sudo gcovr -r . --html --html-details -o covr_static.html
       - run: sudo ./build/tests/test_shared && sudo gcovr -r . --html --html-details -o covr_shared.html
       - uses: actions/upload-artifact@v2
         with:
