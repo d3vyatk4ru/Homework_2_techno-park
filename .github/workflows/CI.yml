@@ -65,6 +65,7 @@ jobs:
       - run: sudo cmake
       - run: sudo make googletest-release-1.7.0
       - run: sudo mkdir build && cd build && sudo cmake .. && sudo make
+      - run: ls
       - run: sudo ./build/tests/test_static && sudo gcovr -r . --html --html-details -o covr_static.html
       - run: sudo ./build/tests/test_shared && sudo gcovr -r . --html --html-details -o covr_shared.html
       - uses: actions/upload-artifact@v2
