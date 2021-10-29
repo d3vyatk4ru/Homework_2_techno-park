@@ -8,7 +8,7 @@
 
 int main() {
 
-    const char filename[] = "/home/d3vyatk4/Рабочий стол/park.mail/C++/Homework_2_techno-park/test_file.txt";
+    const char filename[] = "../test_file.txt";
     long len = get_file_size(filename);
     if (len == -1) {
         return 1;
