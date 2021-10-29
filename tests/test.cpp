@@ -28,9 +28,9 @@ TEST(FILE_LEN, non_exist_file) {
 }
 
 TEST(FILE_LEN, din_file_size) {
-    FILE * file;
+    FILE *file;
 
-    int sizes[] = {0, (int)1e+1, (int)1e+2, (int)1e+4, (int)1e+8};
+    int sizes[] = {0, (int) 1e+1, (int) 1e+2, (int) 1e+4, (int) 1e+8};
     for (size_t i = 0; i < 5; ++i) {
         file = fopen("testfile.txt", "w");
         rewind(file);
@@ -78,13 +78,13 @@ TEST(CALC_COUNT_SYM, correct_count) {
     unsigned int clc[10] = {};
     unsigned int correct_ans[10] = {41, 29, 45, 46, 40, 38, 30, 25, 29, 37};
 
-    for(size_t i = 0; i < 10; ++i) {
+    for (size_t i = 0; i < 10; ++i) {
         fscanf(fd, "%u", &clc[i]);
     }
     fclose(fd);
 
-    for(size_t i = 0; i < 10; ++i) {
-    EXPECT_EQ(clc[i], correct_ans[i]);
+    for (size_t i = 0; i < 10; ++i) {
+        EXPECT_EQ(clc[i], correct_ans[i]);
     }
 }
 
