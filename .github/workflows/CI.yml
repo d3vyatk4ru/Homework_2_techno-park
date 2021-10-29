@@ -59,6 +59,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: sudo apt-get -qq update
+      - run: ls 
       - run: sudo apt-get install -y valgrind
       - run: sudo ./build/tests/test_static && sudo gcovr -r . --html --html-details -o covr_static.html
       - run: sudo ./build/tests/test_shared && sudo gcovr -r . --html --html-details -o covr_shared.html
