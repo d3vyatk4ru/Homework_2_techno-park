@@ -19,6 +19,7 @@ jobs:
 
 # соотсветствие формату написания кода
   formatting-check:
+    needs: build-project
     name: Format checking
     runs-on: ubuntu-latest
     steps:
@@ -31,6 +32,7 @@ jobs:
         
 # Статический анализатор кода
   cpp-check:
+    needs: build-project
     name: Static code analysis
     runs-on: ubuntu-latest
     steps:
@@ -39,5 +41,28 @@ jobs:
     - run: sudo apt-get install cppcheck
     - run: sudo cppcheck --enable=all --inconclusive --language=c ./src
     
-    
-  
+  valgrind:
+    needs: build-project
+    name: Valgrind
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo apt-get -qq update
+      - run: sudo apt-get install -y valgrind
+      - run: sudo valgrind --tool=memcheck --leak-check=summary --track-origins=yes --leak-check=full --error-exitcode=1 chmod a+x ./build/tests/test_static
+      - run: sudo valgrind --tool=memcheck --leak-check=summary --track-origins=yes --leak-check=full --error-exitcode=1 chmod a+x ./build/tests/test_shared
+      
+  gcovr:
+    needs: [build-project, valgrind]
+    name: Gcovr
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo apt-get -qq update
+      - run: sudo apt-get install -y valgrind
+      - run: sudo ./build/tests/test_static && sudo gcovr -r . --html --html-details -o covr_static.html
+      - run: sudo ./build/tests/test_shared && sudo gcovr -r . --html --html-details -o covr_shared.html
+      - uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: coverge
