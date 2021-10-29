@@ -9,7 +9,7 @@ extern "C" {
 
 #include <stdio.h>// поток ввода/вывода
 
-#define TEST_FILE "../../tests/test_file.txt"
+#define TEST_FILE "../../test_file.txt"
 #define NON_EXIST_FILE "filename.txt"
 #define TRUE_LEN 1000
 #define SYMBOLS "abcdefghij"
@@ -77,7 +77,7 @@ TEST(CALC_COUNT_SYM, correct_count) {
     FILE *fd = fopen("../../results.txt", "r");
 
     unsigned int clc[10] = {};
-    unsigned int correct_ans[10] = {41, 29, 45, 46, 40, 38, 30, 25, 29, 37};
+    unsigned int correct_ans[10] = {37, 35, 44, 39, 50, 48, 37, 40, 41, 41};
 
     for (size_t i = 0; i < 10; ++i) {
         fscanf(fd, "%u", &clc[i]);
