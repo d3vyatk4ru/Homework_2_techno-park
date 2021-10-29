@@ -2,11 +2,12 @@
 // Created by d3vyatk4 on 25.10.2021.
 //
 
+#include <stdio.h>   // поток ввода/вывода
+
 #include "gtest/gtest.h"
 extern "C" {
 #include "file_interaction.h"
 }
-#include <stdio.h>   // поток ввода/вывода
 
 #define TEST_FILE "../../tests/test_file.txt"
 #define NON_EXIST_FILE "filename.txt"
