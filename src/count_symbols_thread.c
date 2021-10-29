@@ -52,7 +52,11 @@ int count_symbols(char const *symbols, char *region, long file_len) {
     }
 
     // печать результата
-    print_count((args_routine_t *) &arg, n_threads);
+    errflag = print_count((args_routine_t *) &arg, n_threads);
+
+    if (errflag == 1) {
+        return 1;
+    }
 
     return 0;
 }

@@ -23,14 +23,18 @@ int count_symbols(char const *symbols, char *region, long file_len) {
     }
 
     for (size_t i = 0; symbols[i] != '\0'; ++i) {
-        int errflag = *(int *) count_once_symbol((void *) &arg[i]);
+        int errflag = (int *) count_once_symbol((void *) &arg[i]);
 
         if (errflag != 0) {
             return 1;
         }
     }
 
-    print_count((args_routine_t *) &arg, n_symbols);
+    int errflag = print_count((args_routine_t *) &arg, n_symbols);
+
+    if (errflag == 1) {
+        return 1;
+    }
 
     return 0;
 }

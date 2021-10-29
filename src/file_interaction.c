@@ -17,8 +17,20 @@ int print_count(args_routine_t *arg, int size) {
         return ERR;
     }
 
+    FILE *fd = fopen("../../results.txt", "w");
+
+    if (!fd) {
+        return 1;
+    }
+
     for (int i = 0; i < size; ++i) {
-        printf("Количество вхождений символа '%c' равно %u\n", arg[i].symbol, arg[i].count);
+        fprintf (fd, "%u\n", arg[i].count);
+
+    }
+
+    if (fclose(fd) == ERR) {
+        printf("FILE WAS CLOSE WITH ERROR!!!\n");
+        return 1;
     }
 
     return EXIT_SUCCESS;

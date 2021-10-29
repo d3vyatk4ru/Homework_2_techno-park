@@ -3,12 +3,13 @@
 //
 
 #include "file_interaction.h"
+#include <stdio.h>   // поток ввода/вывода
 
 #define SYMBOLS "abcdefghijklmnopqrstuw"
 
 int main() {
 
-    const char filename[] = "../test_file.txt";
+    const char filename[] = "../../test_file.txt";
     long len = get_file_size(filename);
     if (len == -1) {
         return 1;
@@ -23,6 +24,7 @@ int main() {
     if (status != 0) {
         return 1;
     }
+
 
     return 0;
 }
