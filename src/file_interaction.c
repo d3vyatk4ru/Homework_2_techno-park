@@ -74,7 +74,7 @@ long get_file_size(char const *path) {
     FILE *fp = fopen(path, "r");
 
     if (!fp) {
-        printf("ERROR! FILE WAS NOT OPEN!!! AAAAA \n");
+        printf("ERROR! FILE WAS NOT OPEN!!!\n");
         return -1;
     }
 
@@ -121,7 +121,7 @@ char *load_file_into_mem(char const *path, long file_len) {
     int fd = open(path, O_RDONLY);
 
     if (fd < 0) {
-        printf("ERROR! FILE WAS NOT OPEN!!! BBBB \n");
+        printf("ERROR! FILE WAS NOT OPEN!!!\n");
         return NULL;
     }
 
