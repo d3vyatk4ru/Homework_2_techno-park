@@ -2,3 +2,4 @@
 src/build/
 src/cmake-build-debug/
 src/CMakeFiles
+build/
