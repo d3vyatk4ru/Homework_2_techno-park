@@ -13,6 +13,10 @@
 // подсчет количества символов в многопоточном режиме
 int count_symbols(char const *symbols, char *region, long file_len) {
 
+    if (!region) {
+        return 1;
+    }
+
     // кол-во потоков = кол-во символов, которые необходимо найти
     int n_threads = size(symbols);
     // массив идентификаторов потока
