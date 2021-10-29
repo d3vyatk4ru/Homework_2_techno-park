@@ -3,10 +3,10 @@
 //
 
 #include "gtest/gtest.h"
-#include <stdio.h>   // поток ввода/вывода
 extern "C" {
 #include "file_interaction.h"
 }
+#include <stdio.h>   // поток ввода/вывода
 
 #define TEST_FILE "../../tests/test_file.txt"
 #define NON_EXIST_FILE "filename.txt"

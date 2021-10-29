@@ -3,7 +3,6 @@
 //
 
 #include "file_interaction.h"
-#include <stdio.h>   // поток ввода/вывода
 
 #define SYMBOLS "abcdefghijklmnopqrstuw"
 
