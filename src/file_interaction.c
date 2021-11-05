@@ -56,7 +56,7 @@ void *count_once_symbol(void *args) {
     args_routine_t *arg = (args_routine_t *) args;
     unsigned int count = 0;
 
-    for (size_t i = 0; i < arg->file_len; ++i) {
+    for (int i = 0; i < arg->file_len; ++i) {
         if (arg->symbol == arg->region[i]) {
             count++;
         }
