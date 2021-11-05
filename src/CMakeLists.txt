@@ -7,6 +7,9 @@ project(Homework_2_techno-park)
 # стандарт языка
 set(CMAKE_CXX_STANDARD 14)
 
+add_compile_options(-g -O0 -Wextra -Wall -Wextra -Wpedantic -lgcov --coverage)
+add_link_options( -O0 -lgcov --coverage)
+
 # добавляем пакет с потокам
 find_package (Threads REQUIRED)
 add_compile_options(-pthread)
