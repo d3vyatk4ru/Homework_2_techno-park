@@ -13,7 +13,7 @@ int count_symbols(char const *symbols, char *region, long file_len) {
         return 1;
     }
 
-    int n_symbols = size(symbols);
+    size_t n_symbols = size(symbols);
     args_routine_t arg[n_symbols];
 
     for (size_t i = 0; i < n_symbols; ++i) {
