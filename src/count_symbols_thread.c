@@ -8,8 +8,6 @@
 #include <stdio.h> // поток ввода/вывода
 #include <stdlib.h>// EXIT_SUCCESS
 
-#define ERR -1
-
 // подсчет количества символов в многопоточном режиме
 int count_symbols(char const *symbols, char *region, long file_len) {
 
@@ -18,7 +16,7 @@ int count_symbols(char const *symbols, char *region, long file_len) {
     }
 
     // кол-во потоков = кол-во символов, которые необходимо найти
-    int n_threads = size(symbols);
+    size_t n_threads = size(symbols);
     // массив идентификаторов потока
     pthread_t thread[n_threads];
 
@@ -38,7 +36,7 @@ int count_symbols(char const *symbols, char *region, long file_len) {
         // если не удлось создать и выполнить поток - выход
         if (errflag != EXIT_SUCCESS) {
             printf("Can't create thread, status = %d\n", errflag);
-            return ERR;
+            return -1;
         }
     }
 
@@ -47,7 +45,7 @@ int count_symbols(char const *symbols, char *region, long file_len) {
         errflag = pthread_join(thread[i], NULL);
         if (errflag != EXIT_SUCCESS) {
             printf("Сan't join thread, status = %d\n", errflag);
-            return ERR;
+            return -1;
         }
     }
 
