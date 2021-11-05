@@ -26,14 +26,14 @@ int count_symbols(char const *symbols, char *region, long file_len) {
         int errflag = (int *) count_once_symbol((void *) &arg[i]);
 
         if (errflag != 0) {
-            return 1;
+            return errflag;
         }
     }
 
     int errflag = print_count((args_routine_t *) &arg, n_symbols);
 
     if (errflag == 1) {
-        return 1;
+        return errflag;
     }
 
     return 0;
