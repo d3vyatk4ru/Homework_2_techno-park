@@ -42,7 +42,9 @@ int size(char const *symbols) {
     }
 
     unsigned int len = 0;
-    for (size_t i = 0; symbols[i] != '\0'; ++i) { len++; }
+    for (size_t i = 0; symbols[i] != '\0'; ++i) { 
+        len++; 
+    }
     return len;
 }
 
