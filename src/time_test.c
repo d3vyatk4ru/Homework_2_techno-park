@@ -9,10 +9,9 @@
 #include <time.h>
 #include <unistd.h>
 
-#define SYMBOLS "abcdefghijklmnopqrstuw"
 #define N_LAUNCH 5
 
-double testing(const char *path, const char *symbols, size_t n_launch) {
+double testing(const char *path, size_t n_launch) {
 
     struct timespec start, finish;
     double elapsed;
@@ -52,12 +51,12 @@ double testing(const char *path, const char *symbols, size_t n_launch) {
 
 int main() {
 
-    double time_1 = testing("main_static", SYMBOLS, N_LAUNCH);
+    double time_1 = testing("main_static", N_LAUNCH);
     if (time_1 == -1) {
         return 1;
     }
 
-    double time_2 = testing("main_shared", SYMBOLS, N_LAUNCH);
+    double time_2 = testing("main_shared", N_LAUNCH);
     if (time_2 == -1) {
         return 1;
     }
