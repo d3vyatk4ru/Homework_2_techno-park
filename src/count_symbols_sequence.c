@@ -23,7 +23,7 @@ int count_symbols(char const *symbols, char *region, long file_len) {
     }
 
     for (size_t i = 0; symbols[i] != '\0'; ++i) {
-        int errflag = (int *) count_once_symbol((void *) &arg[i]);
+        int errflag = *(int *) count_once_symbol((void *) &arg[i]);
 
         if (errflag != 0) {
             return errflag;
