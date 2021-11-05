@@ -10,11 +10,9 @@
 #include <sys/mman.h>// импортируем void* mmap(...)
 #include <unistd.h>  // импортируем int close(inf fd)
 
-#define ERR -1
-
 int print_count(args_routine_t *arg, int size) {
     if (!arg) {
-        return ERR;
+        return -1;
     }
 
     FILE *fd = fopen("../../results.txt", "w");
@@ -27,12 +25,12 @@ int print_count(args_routine_t *arg, int size) {
         fprintf(fd, "%u\n", arg[i].count);
     }
 
-    if (fclose(fd) == ERR) {
+    if (fclose(fd) == -1) {
         printf("FILE WAS CLOSE WITH ERROR!!!\n");
-        return 1;
+        return -1;
     }
 
-    return EXIT_SUCCESS;
+    return 0;
 }
 
 int size(char const *symbols) {
@@ -139,7 +137,7 @@ char *load_file_into_mem(char const *path, long file_len) {
         return NULL;
     }
 
-    if (close(fd) == ERR) {
+    if (close(fd) == -1) {
         printf("FILE WAS CLOSE WITH ERROR!!!\n");
         return NULL;
     }
