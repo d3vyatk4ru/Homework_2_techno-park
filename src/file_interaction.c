@@ -33,13 +33,13 @@ int print_count(args_routine_t *arg, int size) {
     return 0;
 }
 
-int size(char const *symbols) {
+size_t size(char const *symbols) {
 
     if (!symbols) {
         return -1;
     }
 
-    unsigned int len = 0;
+    size_t len = 0;
     for (size_t i = 0; symbols[i] != '\0'; ++i) { 
         len++; 
     }
