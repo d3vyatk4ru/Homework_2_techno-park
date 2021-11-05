@@ -40,7 +40,7 @@ size_t size(char const *symbols) {
     }
 
     size_t len = 0;
-    for (size_t i = 0; symbols[i] != '\0'; ++i) { 
+    for (size_t i = 0; symbols[i] != '\0'; ++i) {
         len++;
     }
     return len;
