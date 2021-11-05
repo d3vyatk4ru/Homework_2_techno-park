@@ -34,7 +34,7 @@ int count_symbols(char const *symbols, char *region, long file_len) {
         errflag = pthread_create(&thread[i], NULL, count_once_symbol, (void *) &arg[i]);
 
         // если не удлось создать и выполнить поток - выход
-        if (errflag != EXIT_SUCCESS) {
+        if (errflag != 0) {
             printf("Can't create thread, status = %d\n", errflag);
             return -1;
         }
