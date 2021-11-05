@@ -12,7 +12,7 @@
 #define SYMBOLS "abcdefghijklmnopqrstuw"
 #define N_LAUNCH 5
 
-double testing(const char *path, const char *symbols, int n_launch) {
+double testing(const char *path, const char *symbols, size_t n_launch) {
 
     struct timespec start, finish;
     double elapsed;
