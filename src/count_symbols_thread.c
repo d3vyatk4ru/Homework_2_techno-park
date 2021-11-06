@@ -11,12 +11,24 @@
 // подсчет количества символов в многопоточном режиме
 int count_symbols(char const *symbols, char *region, long file_len) {
 
+    if (file_len < 0) {
+        return 1;
+    }
+
+    if (!symbols) {
+        return 0;
+    }
+
     if (!region) {
         return 1;
     }
 
     // кол-во потоков = кол-во символов, которые необходимо найти
     size_t n_threads = size(symbols);
+    if (n_threads < 0) {
+        return 1;
+    }
+
     // массив идентификаторов потока
     pthread_t thread[n_threads];
 
@@ -36,16 +48,16 @@ int count_symbols(char const *symbols, char *region, long file_len) {
         // если не удлось создать и выполнить поток - выход
         if (errflag != 0) {
             printf("Can't create thread, status = %d\n", errflag);
-            return -1;
+            return 1;
         }
     }
 
     // ожидание завершения всех потоков
     for (size_t i = 0; i < n_threads; ++i) {
         errflag = pthread_join(thread[i], NULL);
-        if (errflag != EXIT_SUCCESS) {
+        if (errflag != 0) {
             printf("Сan't join thread, status = %d\n", errflag);
-            return -1;
+            return 1;
         }
     }
 
