@@ -18,7 +18,7 @@ int print_count(args_routine_t *arg, int size) {
     FILE *fd = fopen("../../results.txt", "w");
 
     if (!fd) {
-        return 1;
+        return -1;
     }
 
     for (int i = 0; i < size; ++i) {
@@ -50,7 +50,7 @@ size_t size(char const *symbols) {
 void *count_once_symbol(void *args) {
 
     if (!args) {
-        return NULL;
+        return 1;
     }
 
     args_routine_t *arg = (args_routine_t *) args;
