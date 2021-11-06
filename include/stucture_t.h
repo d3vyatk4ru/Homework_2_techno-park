@@ -6,10 +6,10 @@
 #define HOMEWORK_2_TECHNO_PARK_STUCTURE_T_H
 
 typedef struct args_routine {
-    char symbol;
-    char *region;
     long file_len;
+    char *region;
     unsigned int count;
+    char symbol;
 } args_routine_t;
 
 
