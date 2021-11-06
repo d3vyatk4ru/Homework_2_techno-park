@@ -37,8 +37,8 @@ add_executable(main_static main.c ${LIB_SOURCES_HEADER})
 add_executable(main_shared main.c ${LIB_SOURCES_HEADER})
 
 # соединение библиотеки и основного бинарного файла
-target_link_libraries(main_static cosym_static)
-target_link_libraries(main_shared cosym_shared pthread)
+target_link_libraries(main_static cosym_static m pthread)
+target_link_libraries(main_shared cosym_shared m pthread)
 
 # бинарный файл для тестирования времени работы
 add_executable(main_time_test time_test.c)
