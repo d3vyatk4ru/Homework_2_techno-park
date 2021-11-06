@@ -9,11 +9,23 @@
 // подсчет вхождения всех данных символов в последовательном режиме
 int count_symbols(char const *symbols, char *region, long file_len) {
 
+    if (file_len < 0) {
+        return -1;
+    }
+
+    if (!symbols) {
+        return 0;
+    }
+
     if (!region) {
         return 1;
     }
 
     size_t n_symbols = size(symbols);
+    if (n_symbols < 0) {
+        return 1;
+    }
+
     args_routine_t arg[n_symbols];
 
     for (size_t i = 0; i < n_symbols; ++i) {
