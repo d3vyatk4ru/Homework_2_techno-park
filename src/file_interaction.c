@@ -69,7 +69,7 @@ void *count_once_symbol(void *args) {
 
 // размер файла
 long get_file_size(char const *path) {
-    
+
     if (!path) {
         return -1;
     }
@@ -121,15 +121,15 @@ long get_file_size(char const *path) {
 
 // загрузка файла в виртуальную память
 char *load_file_into_mem(char const *path, long file_len) {
-    
+
     if (!path) {
         return NULL;
     }
-    
+
     if (file_len <= 0) {
         return 0;
     }
-    
+
     int fd = open(path, O_RDONLY);
 
     if (fd < 0) {
