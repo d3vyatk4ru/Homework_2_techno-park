@@ -3,6 +3,9 @@ project(tests)
 
 set(CMAKE_CXX_STANDARD 14)
 
+add_compile_options(-g -O0 -Wextra -Wall -Wextra -Wpedantic -lgcov --coverage)
+add_link_options( -O0 -lgcov --coverage)
+
 include_directories("../include")
 include_directories("../src")
 
