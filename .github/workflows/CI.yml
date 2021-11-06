@@ -50,6 +50,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: sudo apt-get -qq update
       - run: sudo apt-get install -y valgrind
+      - run: sudo mkdir build && cd build && sudo cmake .. && sudo make
       - run: sudo valgrind --tool=memcheck --leak-check=summary --track-origins=yes --leak-check=full --error-exitcode=1 chmod a+x ./build/tests/test_shared 
       - run: sudo valgrind --tool=memcheck --leak-check=summary --track-origins=yes --leak-check=full --error-exitcode=1 chmod a+x ./build/tests/test_static
       
