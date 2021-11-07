@@ -50,7 +50,7 @@ size_t size(char const *symbols) {
 void *count_once_symbol(void *args) {
 
     if (!args) {
-        return 1;
+        return (void*) 1;
     }
 
     args_routine_t *arg = (args_routine_t *) args;
