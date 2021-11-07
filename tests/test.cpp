@@ -57,11 +57,26 @@ TEST(MMAP_TEST, non_successful_read_into_mem) {
     char *region = load_file_into_mem(NON_EXIST_FILE, TRUE_LEN);
     EXPECT_TRUE(region == nullptr);
 }
-
 // нулевой указатель на файл в виртуальной памяти
-TEST(CALC_COUNT_SYM, nullptr_problem) {
+TEST(CALC_COUNT_SYM, nullptr_problem_region) {
 
     int status = count_symbols(SYMBOLS, nullptr, TRUE_LEN);
+    EXPECT_EQ(status, 1);
+}
+
+TEST(CALC_COUNT_SYM, nullptr_problem_symbols) {
+
+    char *region = load_file_into_mem(TEST_FILE, TRUE_LEN);
+
+    int status = count_symbols(nullptr, region, TRUE_LEN);
+    EXPECT_EQ(status, 1);
+}
+
+TEST(CALC_COUNT_SYM, null_len_problem) {
+
+    char *region = load_file_into_mem(TEST_FILE, TRUE_LEN);
+
+    int status = count_symbols(SYMBOLS, region, -1);
     EXPECT_EQ(status, 1);
 }
 
