@@ -60,7 +60,7 @@ TEST(DISPLAY_COUNT, print_count_null_args) {
 
 TEST(COUNT_ONCE_SYMBOL, nullptr_input) {
 
-    int* status = (int *) count_once_symbol(nullptr);
+    int *status = (int *) count_once_symbol(nullptr);
     EXPECT_TRUE(status != nullptr);
 }
 
