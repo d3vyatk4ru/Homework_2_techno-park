@@ -24,7 +24,7 @@ int count_symbols(char const *symbols, char *region, long file_len) {
     }
 
     // кол-во потоков = кол-во символов, которые необходимо найти
-    size_t n_threads = size(symbols);
+    int n_threads = size(symbols);
     if (n_threads < 0) {
         return 1;
     }
