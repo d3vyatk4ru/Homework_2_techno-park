@@ -135,6 +135,21 @@ TEST(CALC_COUNT_SYM, null_len_problem) {
     EXPECT_EQ(status, 1);
 }
 
+TEST(FULL_TEST, correct_working) {
+
+    const char filename[] = "../../test_file.txt";
+    long len = get_file_size(filename);
+
+    char *region = load_file_into_mem(filename, len);
+
+    int status = count_symbols(SYMBOLS, region, len);
+
+    status = clear_mem(region, len);
+
+    EXPECT_EQ(status, 0);
+
+}
+
 // // тесты на логику работы программы
 // TEST(CALC_COUNT_SYM, correct_count) {
 
