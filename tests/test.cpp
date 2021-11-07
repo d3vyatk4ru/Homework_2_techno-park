@@ -32,10 +32,10 @@ TEST(FILE_LEN, din_file_size) {
     FILE *file;
 
     int sizes[] = {0, (int) 1e+1, (int) 1e+2, (int) 1e+4, (int) 1e+8};
-    for (size_t i = 0; i < 5; ++i) {
+    for (int i = 0; i < 5; ++i) {
         file = fopen("testfile.txt", "w");
         rewind(file);
-        for (size_t j = 0; j < sizes[i]; ++j) {
+        for (int j = 0; j < sizes[i]; ++j) {
             fprintf(file, "%c", 'a');
         }
 
