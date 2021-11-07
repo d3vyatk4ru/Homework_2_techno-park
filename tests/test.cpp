@@ -28,6 +28,13 @@ TEST(FILE_LEN, non_exist_file) {
     EXPECT_EQ(len, -1);
 }
 
+// проверка работы, если нулевой указатель
+TEST(FILE_LEN, nullptr_file) {
+
+    long len = get_file_size(nullptr);
+    EXPECT_EQ(len, -1);
+}
+
 TEST(FILE_LEN, din_file_size) {
     FILE *file;
 
