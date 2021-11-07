@@ -36,13 +36,13 @@ int count_symbols(char const *symbols, char *region, long file_len) {
     int errflag;
     args_routine_t arg[n_threads];
 
-    for (size_t i = 0; i < n_threads; ++i) {
+    for (int i = 0; i < n_threads; ++i) {
         arg[i].symbol = symbols[i];
         arg[i].region = region;
         arg[i].file_len = file_len;
     }
 
-    for (size_t i = 0; i < n_threads; ++i) {
+    for (int i = 0; i < n_threads; ++i) {
         errflag = pthread_create(&thread[i], NULL, count_once_symbol, (void *) &arg[i]);
 
         // если не удлось создать и выполнить поток - выход
@@ -53,7 +53,7 @@ int count_symbols(char const *symbols, char *region, long file_len) {
     }
 
     // ожидание завершения всех потоков
-    for (size_t i = 0; i < n_threads; ++i) {
+    for (int i = 0; i < n_threads; ++i) {
         errflag = pthread_join(thread[i], NULL);
         if (errflag != 0) {
             printf("Сan't join thread, status = %d\n", errflag);
