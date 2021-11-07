@@ -60,11 +60,9 @@ TEST(DISPLAY_COUNT, print_count_null_args) {
 
 TEST(DISPLAY_COUNT, successful_print) {
 
-    size_t n_symbols = 2;
+    args_routine_t arg[2];
 
-    args_routine_t arg[n_symbols];
-
-    for (size_t i = 0; i < n_symbols; ++i) {
+    for (size_t i = 0; i < 2; ++i) {
         arg[i].count = i + 1;
     }
 
