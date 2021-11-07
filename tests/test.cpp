@@ -51,6 +51,13 @@ TEST(FILE_LEN, din_file_size) {
     }
 }
 
+// нулевой указатель данных
+TEST(DISPLAY_COUNT, print_count_null_args) {
+
+    int status = print_count(nullptr, 0);
+    EXPECT_EQ(status, -1);
+}
+
 // корректная загрузка файла в виртуальную память
 TEST(MMAP_TEST, successful_read_into_mem) {
 
