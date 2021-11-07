@@ -58,6 +58,20 @@ TEST(DISPLAY_COUNT, print_count_null_args) {
     EXPECT_EQ(status, -1);
 }
 
+TEST(DISPLAY_COUNT, successful_print) {
+
+    size_t n_symbols = 2;
+
+    args_routine_t arg[n_symbols];
+
+    for (size_t i = 0; i < n_symbols; ++i) {
+        arg[i].count = i + 1;
+    }
+
+    int status = print_count(arg, 0);
+    EXPECT_EQ(status, 0);
+}
+
 TEST(COUNT_ONCE_SYMBOL, nullptr_input) {
 
     int *status = (int *) count_once_symbol(nullptr);
