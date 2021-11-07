@@ -28,13 +28,13 @@ int count_symbols(char const *symbols, char *region, long file_len) {
 
     args_routine_t arg[n_symbols];
 
-    for (size_t i = 0; i < n_symbols; ++i) {
+    for (int i = 0; i < n_symbols; ++i) {
         arg[i].symbol = symbols[i];
         arg[i].region = region;
         arg[i].file_len = file_len;
     }
 
-    for (size_t i = 0; symbols[i] != '\0'; ++i) {
+    for (int i = 0; symbols[i] != '\0'; ++i) {
         int errflag = *(int *) count_once_symbol((void *) &arg[i]);
 
         if (errflag != 0) {
