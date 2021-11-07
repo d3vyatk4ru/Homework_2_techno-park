@@ -147,7 +147,6 @@ TEST(FULL_TEST, correct_working) {
     status = clear_mem(region, len);
 
     EXPECT_EQ(status, 0);
-
 }
 
 // // тесты на логику работы программы
