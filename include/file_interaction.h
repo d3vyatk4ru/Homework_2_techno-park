@@ -19,4 +19,6 @@ int size(char const *symbols);
 
 void *count_once_symbol(void *args);
 
+int clear_mem(char *region, long file_len);
+
 #endif//HOMEWORK_2_TECHNO_PARK_FILE_INTERACTION_H
