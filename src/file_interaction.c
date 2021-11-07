@@ -125,3 +125,14 @@ char *load_file_into_mem(char const *path, long file_len) {
 
     return region;
 }
+
+int clear_mem(char *region, long file_len) {
+
+    int errflag = munmap(region, file_len);
+
+    if (errflag != 0) {
+        return 1;
+    }
+
+    return 0;
+}
