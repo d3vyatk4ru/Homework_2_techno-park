@@ -57,6 +57,21 @@ TEST(MMAP_TEST, non_successful_read_into_mem) {
     char *region = load_file_into_mem(NON_EXIST_FILE, TRUE_LEN);
     EXPECT_TRUE(region == nullptr);
 }
+
+// нулевой указательь най файл
+TEST(MMAP_TEST, nullptr_file) {
+
+    char *region = load_file_into_mem(nullptr, TRUE_LEN);
+    EXPECT_TRUE(region == nullptr);
+}
+
+// отрицательный размер файла
+TEST(MMAP_TEST, non_successful_len) {
+
+    char *region = load_file_into_mem(TEST_FILE, -1);
+    EXPECT_TRUE(region == nullptr);
+}
+
 // нулевой указатель на файл в виртуальной памяти
 TEST(CALC_COUNT_SYM, nullptr_problem_region) {
 
