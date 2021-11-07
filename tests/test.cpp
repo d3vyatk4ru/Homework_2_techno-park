@@ -58,6 +58,18 @@ TEST(DISPLAY_COUNT, print_count_null_args) {
     EXPECT_EQ(status, -1);
 }
 
+TEST(COUNT_ONCE_SYMBOL, nullptr_input) {
+
+    int* status = (int *) count_once_symbol(nullptr);
+    EXPECT_TRUE(status != nullptr);
+}
+
+TEST(SIZE, nullptr_input) {
+
+    int status = print_count(nullptr, 0);
+    EXPECT_EQ(status, -1);
+}
+
 // корректная загрузка файла в виртуальную память
 TEST(MMAP_TEST, successful_read_into_mem) {
 
