@@ -80,26 +80,10 @@ long get_file_size(char const *path) {
     }
 
     // премещаем внутренний указатель в конец файла.
-    if (fseek(fp, 0, SEEK_END)) {
-        printf("POSITION SETTING ERROR!!!\n");
-
-        // разрываем связь с файлом
-        fclose(fp);
-
-        return -1;
-    }
+    fseek(fp, 0, SEEK_END);
 
     // количество байт, занимаемое файлом
     long len = ftell(fp);
-
-    if (len == -1L) {
-        printf("ERROR PROCESSING FILE!!!\n");
-
-        // разрываем связь с файлом
-        fclose(fp);
-
-        return -1;
-    }
 
     // разрываем связь с файлом
     fclose(fp);
