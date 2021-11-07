@@ -137,7 +137,7 @@ TEST(CALC_COUNT_SYM, null_len_problem) {
 
 TEST(FULL_TEST, correct_working) {
 
-    const char filename[] = "../../test_file.txt";
+    const char filename[] = TEST_FILE;
     long len = get_file_size(filename);
 
     char *region = load_file_into_mem(filename, len);
