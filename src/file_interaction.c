@@ -25,10 +25,7 @@ int print_count(args_routine_t *arg, int size) {
         fprintf(fd, "%u\n", arg[i].count);
     }
 
-    if (fclose(fd) == -1) {
-        printf("FILE WAS CLOSE WITH ERROR!!!\n");
-        return -1;
-    }
+    fclose(fd);
 
     return 0;
 }
@@ -87,10 +84,7 @@ long get_file_size(char const *path) {
         printf("POSITION SETTING ERROR!!!\n");
 
         // разрываем связь с файлом
-        if (fclose(fp) == EOF) {
-            printf("FILE WAS CLOSE WITH ERROR!!!\n");
-            return -1;
-        }
+        fclose(fp);
 
         return -1;
     }
@@ -102,19 +96,13 @@ long get_file_size(char const *path) {
         printf("ERROR PROCESSING FILE!!!\n");
 
         // разрываем связь с файлом
-        if (fclose(fp) == EOF) {
-            printf("FILE WAS CLOSE WITH ERROR!!!\n");
-            return -1;
-        }
+        fclose(fp);
 
         return -1;
     }
 
     // разрываем связь с файлом
-    if (fclose(fp) == EOF) {
-        printf("FILE WAS CLOSE WITH ERROR!!!\n");
-        return -1;
-    }
+    fclose(fp);
 
     return len;
 }
@@ -149,10 +137,7 @@ char *load_file_into_mem(char const *path, long file_len) {
         return NULL;
     }
 
-    if (close(fd) == -1) {
-        printf("FILE WAS CLOSE WITH ERROR!!!\n");
-        return NULL;
-    }
+    close(fd);
 
     return region;
 }
