@@ -39,7 +39,7 @@ jobs:
     - uses: actions/checkout@v2
     - run: sudo apt-get -qq update
     - run: sudo apt-get install cppcheck
-    - run: sudo cppcheck --enable=all --inconclusive --language=c ./src
+    - run: sudo cppcheck --enable=all --inconclusive --check-config --suppress=missingIncludeSystem -I include --language=c ./src
 
 # поиск утечек памяти
   valgrind:
