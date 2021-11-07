@@ -21,7 +21,7 @@ int count_symbols(char const *symbols, char *region, long file_len) {
         return 1;
     }
 
-    size_t n_symbols = size(symbols);
+    int n_symbols = size(symbols);
     if (n_symbols < 0) {
         return 1;
     }
