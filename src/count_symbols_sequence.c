@@ -10,11 +10,11 @@
 int count_symbols(char const *symbols, char *region, long file_len) {
 
     if (file_len < 0) {
-        return -1;
+        return 1;
     }
 
     if (!symbols) {
-        return 0;
+        return 1;
     }
 
     if (!region) {
