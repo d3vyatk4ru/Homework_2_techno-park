@@ -147,7 +147,7 @@ TEST(FULL_TEST, correct_working) {
     EXPECT_EQ(status, 0);
 }
 
-// тесты на корректность работы программы
+// тесты на корректность работы алгоритма и программы
 TEST(CALC_COUNT_SYM, correct_count) {
 
     long len = get_file_size(TEST_FILE);
