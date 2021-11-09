@@ -151,6 +151,7 @@ TEST(FULL_TEST, correct_working) {
 TEST(CALC_COUNT_SYM, correct_count) {
 
     long len = get_file_size(TEST_FILE);
+    EXPECT_EQ(len, 1000);
     char *region = load_file_into_mem(TEST_FILE, len);
     int status = count_symbols(SYMBOLS, region, len);
 
