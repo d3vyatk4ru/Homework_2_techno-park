@@ -164,7 +164,6 @@ TEST(CALC_COUNT_SYM, correct_count) {
 
     for (size_t i = 0; i < 10; ++i) {
         fscanf(fd, "%u", &clc[i]);
-        printf("%d\n", clc[i]);
     }
     fclose(fd);
 
