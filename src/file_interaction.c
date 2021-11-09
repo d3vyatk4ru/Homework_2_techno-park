@@ -15,7 +15,7 @@ int print_count(args_routine_t *arg, int size) {
         return -1;
     }
 
-    FILE *fd = fopen("../../results.txt", "w");
+    FILE *fd = fopen("results.txt", "w");
 
     if (!fd) {
         return -1;
