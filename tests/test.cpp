@@ -148,28 +148,12 @@ TEST(FULL_TEST, correct_working) {
 }
 
 // тесты на корректность работы программы
-TEST(CALC_COUNT_SYM, correct_count) {
-
-    long len = get_file_size(TEST_FILE);
-    EXPECT_EQ(len, 1000);
-    char *region = load_file_into_mem(TEST_FILE, len);
-    int status = count_symbols(SYMBOLS, region, len);
-
-    EXPECT_EQ(status, 0);
-
-    FILE *fd = fopen("../../results.txt", "r");
-
-    int clc[10] = {};
-    int correct_ans[10] = {40, 33, 37, 36, 42, 43, 44, 43, 43, 31};
-
-    for (size_t i = 0; i < 10; ++i) {
-        fscanf(fd, "%u", &clc[i]);
+TEST(COUNT_SYMBOL сorrect_сount_symbol) {
+    char symbols[1024] = {0};
+    for (int i = 0; i < 1024; i += 2) {
+        symbols[i] = 'b';
     }
-    fclose(fd);
-
-    for (size_t i = 0; i < 10; ++i) {
-        EXPECT_EQ(clc[i], correct_ans[i]);
-    }
+    ASSERT_EQ(512, count_symbols('b', symbols, 1024));
 }
 
 int main(int argc, char *argv[]) {
