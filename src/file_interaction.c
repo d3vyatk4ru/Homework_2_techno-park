@@ -22,7 +22,7 @@ int print_count(args_routine_t *arg, int size) {
     }
 
     for (int i = 0; i < size; ++i) {
-        fprintf(fd, "%u\n", arg[i].count);
+        fprintf(fd, "%d\n", arg[i].count);
     }
 
     fclose(fd);
