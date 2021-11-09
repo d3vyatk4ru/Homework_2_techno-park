@@ -37,7 +37,7 @@ int count_symbols(char const *symbols, char *region, long file_len) {
     for (int i = 0; symbols[i] != '\0'; ++i) {
         int *errflag = (int *) count_once_symbol((void *) &arg[i]);
 
-        if (!errflag) {
+        if (errflag) {
             return 1;
         }
     }
