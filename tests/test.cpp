@@ -148,7 +148,7 @@ TEST(FULL_TEST, correct_working) {
 }
 
 // тесты на корректность работы программы
-TEST(COUNT_SYMBOL сorrect_сount_symbol) {
+TEST(COUNT_SYMBOL, сorrect_сount_symbol) {
     char symbols[1024] = {0};
     for (int i = 0; i < 1024; i += 2) {
         symbols[i] = 'b';
