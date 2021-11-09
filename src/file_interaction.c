@@ -15,7 +15,7 @@ int print_count(args_routine_t *arg, int size) {
         return -1;
     }
 
-    FILE *fd = fopen("/home/runner/work/Homework_2_techno-park/Homework_2_techno-park", "w");
+    FILE *fd = fopen("/home/runner/work/Homework_2_techno-park/Homework_2_techno-park/results.txt", "w");
 
     if (!fd) {
         return -1;
