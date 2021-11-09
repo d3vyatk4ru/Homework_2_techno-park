@@ -159,11 +159,12 @@ TEST(CALC_COUNT_SYM, correct_count) {
 
     FILE *fd = fopen("../../results.txt", "r");
 
-    unsigned int clc[10] = {};
-    unsigned int correct_ans[10] = {40, 33, 37, 36, 42, 43, 44, 43, 43, 31};
+    int clc[10] = {};
+    int correct_ans[10] = {40, 33, 37, 36, 42, 43, 44, 43, 43, 31};
 
     for (size_t i = 0; i < 10; ++i) {
         fscanf(fd, "%u", &clc[i]);
+        printf("%d\n", clc[i]);
     }
     fclose(fd);
 
