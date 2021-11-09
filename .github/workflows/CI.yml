@@ -74,7 +74,12 @@ jobs:
       - run: sudo mkdir build && cd build && sudo cmake .. && sudo make
       - run: sudo ./build/tests/test_static && sudo ./build/tests/test_shared
       - run: sudo gcovr -r .. --html --html-details -o cov.html
+#       - uses: actions/upload-artifact@v2
+#         with:
+#           name: coverage-report
+#           path: cov.html
+
       - uses: actions/upload-artifact@v2
         with:
           name: coverage-report
-          path: cov.html
+          path: results.txt
