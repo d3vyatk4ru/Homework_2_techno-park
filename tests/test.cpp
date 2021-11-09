@@ -156,7 +156,7 @@ TEST(CALC_COUNT_SYM, correct_count) {
 
     EXPECT_EQ(status, 0);
 
-    FILE *fd = fopen("/home/runner/work/Homework_2_techno-park/Homework_2_techno-park/results.txt", "r");
+    FILE *fd = fopen("../../results.txt", "r");
 
     unsigned int clc[10] = {};
     unsigned int correct_ans[10] = {40, 33, 37, 36, 42, 43, 44, 43, 43, 31};
