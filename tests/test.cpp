@@ -150,10 +150,11 @@ TEST(FULL_TEST, correct_working) {
 // тесты на корректность работы программы
 TEST(COUNT_SYMBOL, correct_count_symbol) {
     char symbols[1024] = {0};
+    const char *sym = "b";
     for (int i = 0; i < 1024; i += 2) {
         symbols[i] = 'b';
     }
-    ASSERT_EQ(512, count_symbols('b', symbols, 1024));
+    ASSERT_EQ(512, count_symbols(sym, symbols, 1024));
 }
 
 int main(int argc, char *argv[]) {
