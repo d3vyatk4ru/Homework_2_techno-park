@@ -14,6 +14,31 @@ extern "C" {
 #define TRUE_LEN 1000
 #define SYMBOLS "abcdefghij"
 
+
+// тесты на корректность работы алгоритма и программы
+TEST(CALC_COUNT_SYM, correct_count) {
+
+    long len = get_file_size(TEST_FILE);
+    char *region = load_file_into_mem(TEST_FILE, len);
+    int status = count_symbols(SYMBOLS, region, len);
+
+    EXPECT_EQ(status, 0);
+
+    FILE *fd = fopen("results.txt", "r");
+
+    unsigned int clc[10] = {};
+    unsigned int correct_ans[10] = {40, 33, 37, 36, 41, 43, 44, 43, 43, 31};
+
+    for (size_t i = 0; i < 10; ++i) {
+        fscanf(fd, "%u", &clc[i]);
+    }
+    fclose(fd);
+
+    for (size_t i = 0; i < 10; ++i) {
+        EXPECT_EQ(clc[i], correct_ans[i]);
+    }
+}
+
 // файл найден, размер корректный
 TEST(FILE_LEN, successful_len) {
 
@@ -58,6 +83,7 @@ TEST(DISPLAY_COUNT, print_count_null_args) {
     EXPECT_EQ(status, -1);
 }
 
+// проверка функции печати
 TEST(DISPLAY_COUNT, successful_print) {
 
     args_routine_t arg[2];
@@ -117,6 +143,7 @@ TEST(CALC_COUNT_SYM, nullptr_problem_region) {
     EXPECT_EQ(status, 1);
 }
 
+// проверка работы с плохими данными в функции подсчета
 TEST(CALC_COUNT_SYM, nullptr_problem_symbols) {
 
     char *region = load_file_into_mem(TEST_FILE, TRUE_LEN);
@@ -125,6 +152,7 @@ TEST(CALC_COUNT_SYM, nullptr_problem_symbols) {
     EXPECT_EQ(status, 1);
 }
 
+// проверка работы с плохими данными в функции подсчета
 TEST(CALC_COUNT_SYM, null_len_problem) {
 
     char *region = load_file_into_mem(TEST_FILE, TRUE_LEN);
@@ -133,6 +161,7 @@ TEST(CALC_COUNT_SYM, null_len_problem) {
     EXPECT_EQ(status, 1);
 }
 
+// полный пайплайн
 TEST(FULL_TEST, correct_working) {
 
     const char filename[] = TEST_FILE;
@@ -141,34 +170,11 @@ TEST(FULL_TEST, correct_working) {
     char *region = load_file_into_mem(filename, len);
 
     int status = count_symbols(SYMBOLS, region, len);
+    EXPECT_EQ(status, 0);
 
     status = clear_mem(region, len);
 
     EXPECT_EQ(status, 0);
-}
-
-// тесты на корректность работы алгоритма и программы
-TEST(CALC_COUNT_SYM, correct_count) {
-
-    long len = get_file_size(TEST_FILE);
-    char *region = load_file_into_mem(TEST_FILE, len);
-    int status = count_symbols(SYMBOLS, region, len);
-
-    EXPECT_EQ(status, 0);
-
-    FILE *fd = fopen("results.txt", "r");
-
-    unsigned int clc[10] = {};
-    unsigned int correct_ans[10] = {40, 33, 37, 36, 41, 43, 44, 43, 43, 31};
-
-    for (size_t i = 0; i < 10; ++i) {
-        fscanf(fd, "%u", &clc[i]);
-    }
-    fclose(fd);
-
-    for (size_t i = 0; i < 10; ++i) {
-        EXPECT_EQ(clc[i], correct_ans[i]);
-    }
 }
 
 int main(int argc, char *argv[]) {
